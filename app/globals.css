@@ -51,3 +51,76 @@ body{font-weight:400}button,input,select,textarea{font-family:inherit}main{overf
  .hero-card img{height:55px}
  .finder{min-height:72px;padding-top:12px;padding-bottom:12px}
 }
+
+/* Dropdown panel for the enquiry finder. The theme never maps bg-popover,
+   so without this the open list is transparent over the hero. */
+[data-slot=select-content]{background:#fff;color:#112f36;border:1px solid #bcd7d7;border-radius:10px;box-shadow:0 14px 34px #04202a40}
+[data-slot=select-item]{cursor:pointer;border-radius:6px}
+[data-slot=select-item][data-highlighted]{background:#e8f5f4;outline:none}
+
+/* Mobile and tablet refinements. Everything here is scoped to max-width
+   queries so the desktop layout (901px and up) is unchanged. */
+@media(max-width:900px){
+ /* Keep the yachts from colliding across the two offer columns. */
+ .offer-art img{width:106%;max-width:106%;margin-left:-3%}
+ /* Keep the journey yacht inside its card. */
+ .journey-card>img{width:100%;max-width:100%;margin:0}
+}
+@media(max-width:600px){
+ /* Header: icon sits inline with the wordmark instead of overlapping it. */
+ .header>.brand{left:50%;gap:8px}
+ .header>.brand .brand-symbol{position:static;right:auto;flex-shrink:0}
+ .header-actions button{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;margin-right:-10px}
+ .mobile-menu{left:6%;right:6%;min-width:0}
+ .mobile-menu a{padding:14px 15px;font-size:16px}
+
+ /* Hero: kicker flows under the titles instead of colliding with them. */
+ .hero{min-height:640px}
+ .hero-kicker{position:static;max-width:none;padding:14px 6% 0;font-size:9px;letter-spacing:1.6px}
+ .hero-bottom>p{font-size:12px;max-width:none}
+ .hero-bottom>p br{display:none}
+ .hero-bottom>p strong{display:block;margin-top:4px}
+ .finder .choice{font-size:13px!important}
+ .finder .button{font-size:13px}
+
+ /* Offers: one readable card per row. */
+ .offer-grid{grid-template-columns:1fr;gap:36px;max-width:420px;margin-left:auto;margin-right:auto}
+ .offer-art{height:220px;padding-top:44px}
+ .offer-art img{height:200px;width:100%;max-width:100%;margin-left:0}
+ .arched-sea{left:16px;right:16px;border-width:14px;border-radius:22px 22px 0 0}
+ .offer-tag{left:40px;top:28px;right:auto;font-size:9px;letter-spacing:.6px;padding:5px 9px}
+ .offer-info{margin:0 16px;padding:20px 18px 22px;border-radius:0 0 18px 18px}
+ .offer-info h3{font-size:20px}
+ .offer-info p{font-size:13px;line-height:1.5;gap:6px}
+ .offer-info p svg{min-width:15px;width:15px}
+ .image-note{font-size:12px}
+
+ /* Journey tabs and card. */
+ .tab-list button{font-size:13px!important;padding:8px 18px!important}
+ .journey-card p,.journey-card ul{font-size:14px}
+ .journey-card>img{height:200px;margin:10px 0 0}
+
+ /* Gallery: a swipeable strip so every photo is reachable. */
+ .gallery-strip{width:auto;height:auto;margin:30px 0 0;padding:14px 6% 18px;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 6%;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ .gallery-strip::-webkit-scrollbar{display:none}
+ .gallery-strip img{flex:0 0 64%;width:64%;height:230px;scroll-snap-align:center}
+ .gallery-strip img:nth-child(2){height:230px;transform:rotate(-2deg)}
+ .gallery-strip img:nth-child(4){height:230px;transform:rotate(2deg)}
+ .gallery-strip img:hover{transform:none}
+ .gallery-link{margin-top:24px}
+
+ /* Footer: larger, easier-to-tap links. */
+ .footer-grid p,.footer-grid a:not(.brand){font-size:14px}
+ .footer-grid a:not(.brand){padding:4px 0;margin-bottom:6px}
+ .footer-bottom{font-size:12px;gap:18px}
+ .footer-bottom a{padding:6px 0}
+}
+@media(max-width:360px){
+ .header>.brand,.header>.brand small{font-size:10px;letter-spacing:.8px}
+ .hero h1{font-size:40px}
+ .hero h1 span{font-size:26px}
+ .hero-titles>p{font-size:26px}
+ .hero-card{width:100px}
+ .finder .choice{font-size:12px!important}
+ .finder .button{padding:10px 12px}
+}
